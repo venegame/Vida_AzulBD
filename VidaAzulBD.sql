@@ -24,3 +24,50 @@ CREATE TABLE Roles (
     id_rol INT PRIMARY KEY,
     nombre_rol VARCHAR2(50) NOT NULL);
     
+-- Crear tabla Categoría
+CREATE TABLE Categoria (
+    id_categoria INT PRIMARY KEY,
+    nombre_categoria VARCHAR2(80) NOT NULL
+);
+
+-- Crear tabla Galeria
+CREATE TABLE Galeria (
+    id_imagen INT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    titulo_imagen VARCHAR2(250) NOT NULL,
+    imagen_url VARCHAR2(250) NOT NULL);
+
+-- Crear tabla Comentarios
+CREATE TABLE Comentarios (
+    id_comentario INT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    fecha_comentario DATE NOT NULL,
+    comentario VARCHAR2(500)
+);
+
+-- Crear tabla Expertos
+CREATE TABLE Expertos (
+    id_experto INT PRIMARY KEY,
+    nombre_experto VARCHAR2(80) NOT NULL,
+    quienes_somos VARCHAR2(500) NOT NULL,
+    historia_expertos VARCHAR2(500) NOT NULL,
+    url_instagram VARCHAR2(300),
+    url_x VARCHAR2(300),
+    url_youtube VARCHAR2(300),
+    url_facebook VARCHAR2(300)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
