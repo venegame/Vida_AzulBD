@@ -4,9 +4,14 @@ import com.vida.azul.domain.Usuario;
 import com.vida.azul.Service.UsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +28,6 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    // Mostrar formulario principal
     @GetMapping("/listado")
     public String mostrarListado(Model model) {
         List<Usuario> usuarios = usuarioService.obtenerUsuarios();
@@ -38,19 +42,6 @@ public class UsuarioController {
         return "usuarios/nuevo";
     }
 
-    // Mostrar formulario para eliminar usuario
-    @GetMapping("/eliminar")
-    public String mostrarFormularioEliminar() {
-        return "usuarios/eliminar"; // Página para eliminar usuario
-    }
-
-    // Mostrar formulario para actualizar usuario
-    @GetMapping("/actualizar")
-    public String mostrarFormularioActualizar(Model model) {
-        model.addAttribute("usuarios", usuarioService.obtenerUsuarios()); // Enviar la lista de usuarios al modelo para el dropdown
-        return "usuarios/actualizar"; // Página para actualizar usuarios
-    }
-
     // Manejar la solicitud de agregar usuario
     @PostMapping("/guardar")
     public String agregarUsuario(Usuario usuario, RedirectAttributes redirectAttributes) {
@@ -58,29 +49,35 @@ public class UsuarioController {
         redirectAttributes.addFlashAttribute("mensaje", "Usuario agregado exitosamente");
         return "redirect:/usuarios/listado"; // Redirige al listado de usuarios
     }
-
-    // Manejar la solicitud de eliminar usuario
-    @PostMapping("/eliminar")
-    public String eliminarUsuario(@RequestParam("id_usuario") Long id_usuario, Model model) {
-        String resultado = usuarioService.eliminarUsuario(id_usuario);
-        model.addAttribute("resultado", resultado);
-        return "usuarios/resultado"; // Página de resultado
+    
+    @GetMapping("/editar")
+    public String mostrarFormularioEditar(@RequestParam("id") Long id, Model model) {
+        Usuario usuario = usuarioService.obtenerUsuarioPorId(id);
+        model.addAttribute("usuario", usuario);
+        return "usuarios/editar"; // Nombre del archivo de vista
     }
 
-    // Manejar la solicitud de actualizar usuario
-    @PostMapping("/actualizar")
-    public String actualizarUsuario(@RequestParam("id_usuario") String id_usuario,
-                                    @RequestParam("id_rol") Long id_rol,
-                                    @RequestParam("nombre_usuario") String nombre_usuario,
-                                    @RequestParam("apellido_usuario") String apellido_usuario,
-                                    @RequestParam("correo") String correo,
-                                    @RequestParam("contrasenia") String contrasenia,
-                                    Model model) {
-        Usuario usuario = new Usuario(id_rol, nombre_usuario, apellido_usuario, correo, contrasenia);
-        usuario.setId_usuario(Long.parseLong(id_usuario)); // Convertir el ID de String a Long
-        String resultado = usuarioService.actualizarUsuario(usuario);
-        model.addAttribute("resultado", resultado);
-        return "usuarios/resultado"; // Página de resultado
+    @PostMapping("/editar")
+    public String actualizarUsuario(@ModelAttribute("usuario") Usuario usuario, RedirectAttributes redirectAttributes) {
+        try {
+            String resultado = usuarioService.actualizarUsuario(usuario);
+            redirectAttributes.addFlashAttribute("resultado", resultado);
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("resultado", "Error al actualizar usuario: " + e.getMessage());
+        }
+        return "redirect:/usuarios/listado";
     }
+    
+    @DeleteMapping("/eliminar/{id}")
+    public ResponseEntity<String> eliminarUsuario(@PathVariable("id") Long id) {
+        try {
+            String resultado = usuarioService.eliminarUsuario(id);
+            return ResponseEntity.ok(resultado);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .body("Error al eliminar el usuario.");
+        }
+    }
+    
 }
 
