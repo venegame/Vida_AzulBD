@@ -5,8 +5,6 @@
 package com.vida.azul.domain;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *

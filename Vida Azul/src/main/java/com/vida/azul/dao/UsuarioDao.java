@@ -7,8 +7,6 @@ package com.vida.azul.dao;
 import com.vida.azul.domain.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
-
 import javax.sql.DataSource;
 import java.sql.CallableStatement;
 import java.sql.Connection;
