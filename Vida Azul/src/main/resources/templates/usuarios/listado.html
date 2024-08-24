@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vida Azul - Usuarios</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <div th:replace="/navbar-cruds :: navbar-cruds"></div>
+</head>
+<body>
+    <main class="flex-shrink-0">
+        <div class="container">
+            <h3 class="my-3" id="titulo">Usuarios</h3>
+            <a href="/usuarios/nuevo" class="btn" style="background-color: #217C61; color: white;">Agregar</a>
+            <table class="table table-hover table-bordered my-3" aria-describedby="titulo">
+                <thead style="background-color: #112A26; color: white;">
+                    <tr>
+                        <th scope="col">ID Usuario</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Contraseña</th>
+                        <th scope="col">Rol</th>
+                        <th scope="col">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Iterar sobre la lista de usuarios -->
+                    <tr th:each="usuario : ${usuarios}">
+                        <td th:text="${usuario.id_usuario}"></td>
+                        <td th:text="${usuario.id_rol}"></td>
+                        <td th:text="${usuario.nombre_usuario}"></td>
+                        <td th:text="${usuario.apellido_usuario}"></td>
+                        <td th:text="${usuario.correo}"></td>
+                        <td>******</td> <!-- Ocultar la contraseña por seguridad -->
+                        <td>
+                            <a th:href="@{/usuarios/editar(id=${usuario.id_usuario})}" class="btn btn-sm me-2"
+                                style="background-color: #94C132; color: white;">Editar</a>
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#eliminaModal" th:data-bs-id="${usuario.id_usuario}">Eliminar</button>
+                        </td>
+                    </tr>
+                    <!-- Mostrar mensaje si no hay usuarios disponibles -->
+                    <tr th:if="${#lists.isEmpty(usuarios)}">
+                        <td colspan="7">No hay usuarios disponibles.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <br>
+
+    <footer class="footer col text-center text-white mt-auto p-1" style="background-color:#217C61;position: fixed; bottom: 0;width: 100%;">
+        <div class="container ">
+            <div class="col">
+                <p style="color: white;">&COPY;Vida Azul Derechos Reservados 2024</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="eliminaModal" tabindex="-1" aria-labelledby="eliminaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="eliminaModalLabel">Aviso</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Desea eliminar este registro?</p>
+                </div>
+                <div class="modal-footer">
+                    <form id="form-elimina" action="" method="post">
+                        <input type="hidden" name="_method" value="delete">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+</body>
+</html>
+

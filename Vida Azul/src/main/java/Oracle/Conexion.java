@@ -17,19 +17,15 @@ public class Conexion {
     private static final String DRIVER ="oracle.jdbc.OracleDriver";
 
     public static Connection getConnection(){
-         Connection conexion= null;
-   
+         Connection conexion = null;
         try{
             Class.forName(DRIVER);
             conexion = DriverManager.getConnection(url, USER, PASSWORD);
-            
         }catch (ClassNotFoundException e){
-            System.out.println("Erroral cargar el driver");
+            System.out.println("Error al cargar el driver");
         }catch(SQLException e){
             System.out.println("Error de conexion");
         }
-        
-        
         return conexion;  
     }
     
