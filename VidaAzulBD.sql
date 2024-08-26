@@ -936,3 +936,742 @@ BEGIN
     SELECT id_evento, id_categoria, nombre_evento, fecha_evento, descripcion, imagen
     FROM eventos;
 END;
+
+CREATE OR REPLACE PROCEDURE sp_agregar_evento(
+    p_id_categoria IN eventos.id_categoria%TYPE,
+    p_nombre_evento IN eventos.nombre_evento%TYPE,
+    p_fecha_evento IN eventos.fecha_evento%TYPE,
+    p_descripcion IN eventos.descripcion%TYPE,
+    p_imagen IN eventos.imagen%TYPE
+) IS
+BEGIN
+    INSERT INTO eventos (id_categoria, nombre_evento, fecha_evento, descripcion, imagen)
+    VALUES (p_id_categoria, p_nombre_evento, p_fecha_evento, p_descripcion, p_imagen);
+    COMMIT;
+END;
+
+
+CREATE OR REPLACE PROCEDURE sp_leer_eventos(
+    p_eventos OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_eventos FOR
+    SELECT * FROM eventos;
+END sp_leer_eventos;
+
+
+CREATE OR REPLACE PROCEDURE sp_actualizar_evento(
+    p_id_evento IN eventos.id_evento%TYPE,
+    p_id_categoria IN eventos.id_categoria%TYPE,
+    p_nombre_evento IN eventos.nombre_evento%TYPE,
+    p_fecha_evento IN eventos.fecha_evento%TYPE,
+    p_descripcion IN eventos.descripcion%TYPE,
+    p_imagen IN eventos.imagen%TYPE
+) IS
+BEGIN
+    UPDATE eventos
+    SET id_categoria = p_id_categoria,
+        nombre_evento = p_nombre_evento,
+        fecha_evento = p_fecha_evento,
+        descripcion = p_descripcion,
+        imagen = p_imagen
+    WHERE id_evento = p_id_evento;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_eliminar_evento(
+    p_id_evento IN eventos.id_evento%TYPE
+) IS
+BEGIN
+    DELETE FROM eventos
+    WHERE id_evento = p_id_evento;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_obtener_evento_por_id(
+    p_id_evento IN eventos.id_evento%TYPE,
+    p_evento OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_evento FOR
+    SELECT * FROM eventos WHERE id_evento = p_id_evento;
+END;
+
+--CRUD rol
+CREATE OR REPLACE PROCEDURE sp_agregar_rol(
+    p_nombre_rol IN rol.nombre_rol%TYPE
+) IS
+BEGIN
+    INSERT INTO rol (nombre_rol)
+    VALUES (p_nombre_rol);
+    COMMIT;
+END;
+
+
+CREATE OR REPLACE PROCEDURE sp_leer_roles(
+    p_roles OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_roles FOR
+    SELECT * FROM rol;
+END sp_leer_roles;
+
+CREATE OR REPLACE PROCEDURE sp_actualizar_rol(
+    p_id_rol IN rol.id_rol%TYPE,
+    p_nombre_rol IN rol.nombre_rol%TYPE
+) IS
+BEGIN
+    UPDATE rol
+    SET nombre_rol = p_nombre_rol
+    WHERE id_rol = p_id_rol;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_eliminar_rol(
+    p_id_rol IN rol.id_rol%TYPE
+) IS
+BEGIN
+    DELETE FROM rol
+    WHERE id_rol = p_id_rol;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_obtener_rol_por_id(
+    p_id_rol IN rol.id_rol%TYPE,
+    p_rol OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_rol FOR
+    SELECT * FROM rol WHERE id_rol = p_id_rol;
+END;
+/
+
+--CRUD categoria
+CREATE OR REPLACE PROCEDURE sp_agregar_categoria(
+    p_nombre_categoria IN categoria.nombre_categoria%TYPE
+) IS
+BEGIN
+    INSERT INTO categoria (nombre_categoria)
+    VALUES (p_nombre_categoria);
+    COMMIT;
+END;
+
+
+CREATE OR REPLACE PROCEDURE sp_leer_categorias(
+    p_categorias OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_categorias FOR
+    SELECT * FROM categoria;
+END sp_leer_categorias;
+
+CREATE OR REPLACE PROCEDURE sp_actualizar_categoria(
+    p_id_categoria IN categoria.id_categoria%TYPE,
+    p_nombre_categoria IN categoria.nombre_categoria%TYPE
+) IS
+BEGIN
+    UPDATE categoria
+    SET nombre_categoria = p_nombre_categoria
+    WHERE id_categoria = p_id_categoria;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_eliminar_categoria(
+    p_id_categoria IN categoria.id_categoria%TYPE
+) IS
+BEGIN
+    DELETE FROM categoria
+    WHERE id_categoria = p_id_categoria;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_obtener_categoria_por_id(
+    p_id_categoria IN categoria.id_categoria%TYPE,
+    p_categoria OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_categoria FOR
+    SELECT * FROM categoria WHERE id_categoria = p_id_categoria;
+END;
+/
+
+--CRUD usuario
+CREATE OR REPLACE PROCEDURE sp_agregar_usuario(
+    p_id_rol IN usuario.id_rol%TYPE,
+    p_nombre_usuario IN usuario.nombre_usuario%TYPE,
+    p_apellido_usuario IN usuario.apellido_usuario%TYPE,
+    p_correo IN usuario.correo%TYPE,
+    p_contrasenia IN usuario.contrasenia%TYPE
+) IS
+BEGIN
+    INSERT INTO usuario (id_rol, nombre_usuario, apellido_usuario, correo, contrasenia)
+    VALUES (p_id_rol, p_nombre_usuario, p_apellido_usuario, p_correo, p_contrasenia);
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_leer_usuarios(
+    p_usuarios OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_usuarios FOR
+    SELECT * FROM usuario;
+END sp_leer_usuarios;
+
+CREATE OR REPLACE PROCEDURE sp_actualizar_usuario(
+    p_id_usuario IN usuario.id_usuario%TYPE,
+    p_id_rol IN usuario.id_rol%TYPE,
+    p_nombre_usuario IN usuario.nombre_usuario%TYPE,
+    p_apellido_usuario IN usuario.apellido_usuario%TYPE,
+    p_correo IN usuario.correo%TYPE,
+    p_contrasenia IN usuario.contrasenia%TYPE
+) IS
+BEGIN
+    UPDATE usuario
+    SET id_rol = p_id_rol,
+        nombre_usuario = p_nombre_usuario,
+        apellido_usuario = p_apellido_usuario,
+        correo = p_correo,
+        contrasenia = p_contrasenia
+    WHERE id_usuario = p_id_usuario;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_eliminar_usuario(
+    p_id_usuario IN usuario.id_usuario%TYPE
+) IS
+BEGIN
+    DELETE FROM usuario
+    WHERE id_usuario = p_id_usuario;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_obtener_usuario_por_id(
+    p_id_usuario IN usuario.id_usuario%TYPE,
+    p_usuario OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_usuario FOR
+    SELECT * FROM usuario WHERE id_usuario = p_id_usuario;
+END;
+/
+
+--CRUD comentario
+CREATE OR REPLACE PROCEDURE sp_agregar_comentario(
+    p_id_usuario IN comentario.id_usuario%TYPE,
+    p_fecha_comentario IN comentario.fecha_comentario%TYPE,
+    p_comentario IN comentario.comentario%TYPE
+) IS
+BEGIN
+    INSERT INTO comentario (id_usuario, fecha_comentario, comentario)
+    VALUES (p_id_usuario, p_fecha_comentario, p_comentario);
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_leer_comentarios(
+    p_comentarios OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_comentarios FOR
+    SELECT * FROM comentario;
+END sp_leer_comentarios;
+
+CREATE OR REPLACE PROCEDURE sp_actualizar_comentario(
+    p_id_comentario IN comentario.id_comentario%TYPE,
+    p_id_usuario IN comentario.id_usuario%TYPE,
+    p_fecha_comentario IN comentario.fecha_comentario%TYPE,
+    p_comentario IN comentario.comentario%TYPE
+) IS
+BEGIN
+    UPDATE comentario
+    SET id_usuario = p_id_usuario,
+        fecha_comentario = p_fecha_comentario,
+        comentario = p_comentario
+    WHERE id_comentario = p_id_comentario;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_eliminar_comentario(
+    p_id_comentario IN comentario.id_comentario%TYPE
+) IS
+BEGIN
+    DELETE FROM comentario
+    WHERE id_comentario = p_id_comentario;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_obtener_comentario_por_id(
+    p_id_comentario IN comentario.id_comentario%TYPE,
+    p_comentario OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_comentario FOR
+    SELECT * FROM comentario WHERE id_comentario = p_id_comentario;
+END;
+
+
+--CRUD expertos
+CREATE OR REPLACE PROCEDURE sp_agregar_experto(
+    p_id_categoria IN expertos.id_categoria%TYPE,
+    p_nombre_experto IN expertos.nombre_experto%TYPE,
+    p_quienes_somos IN expertos.quienes_somos%TYPE,
+    p_historia_expertos IN expertos.historia_expertos%TYPE,
+    p_url_instagram IN expertos.url_instagram%TYPE,
+    p_url_x IN expertos.url_x%TYPE,
+    p_url_youtube IN expertos.url_youtube%TYPE,
+    p_url_facebook IN expertos.url_facebook%TYPE
+) IS
+BEGIN
+    INSERT INTO expertos (id_categoria, nombre_experto, quienes_somos, historia_expertos, url_instagram, url_x, url_youtube, url_facebook)
+    VALUES (p_id_categoria, p_nombre_experto, p_quienes_somos, p_historia_expertos, p_url_instagram, p_url_x, p_url_youtube, p_url_facebook);
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_leer_expertos(
+    p_expertos OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_expertos FOR
+    SELECT * FROM expertos;
+END sp_leer_expertos;
+
+CREATE OR REPLACE PROCEDURE sp_actualizar_experto(
+    p_id_experto IN expertos.id_experto%TYPE,
+    p_id_categoria IN expertos.id_categoria%TYPE,
+    p_nombre_experto IN expertos.nombre_experto%TYPE,
+    p_quienes_somos IN expertos.quienes_somos%TYPE,
+    p_historia_expertos IN expertos.historia_expertos%TYPE,
+    p_url_instagram IN expertos.url_instagram%TYPE,
+    p_url_x IN expertos.url_x%TYPE,
+    p_url_youtube IN expertos.url_youtube%TYPE,
+    p_url_facebook IN expertos.url_facebook%TYPE
+) IS
+BEGIN
+    UPDATE expertos
+    SET id_categoria = p_id_categoria,
+        nombre_experto = p_nombre_experto,
+        quienes_somos = p_quienes_somos,
+        historia_expertos = p_historia_expertos,
+        url_instagram = p_url_instagram,
+        url_x = p_url_x,
+        url_youtube = p_url_youtube,
+        url_facebook = p_url_facebook
+    WHERE id_experto = p_id_experto;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_eliminar_experto(
+    p_id_experto IN expertos.id_experto%TYPE
+) IS
+BEGIN
+    DELETE FROM expertos
+    WHERE id_experto = p_id_experto;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_obtener_experto_por_id(
+    p_id_experto IN expertos.id_experto%TYPE,
+    p_experto OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_experto FOR
+    SELECT * FROM expertos WHERE id_experto = p_id_experto;
+END;
+/
+
+--CRUD galeria
+CREATE OR REPLACE PROCEDURE sp_agregar_imagen(
+    p_id_usuario IN galeria.id_usuario%TYPE,
+    p_imagen IN galeria.imagen%TYPE,
+    p_titulo IN galeria.titulo%TYPE
+) IS
+BEGIN
+    INSERT INTO galeria (id_usuario, imagen, titulo)
+    VALUES (p_id_usuario, p_imagen, p_titulo);
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_leer_imagenes(
+    p_imagenes OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_imagenes FOR
+    SELECT * FROM galeria;
+END sp_leer_imagenes;
+
+CREATE OR REPLACE PROCEDURE sp_actualizar_imagen(
+    p_id_imagen IN galeria.id_imagen%TYPE,
+    p_id_usuario IN galeria.id_usuario%TYPE,
+    p_imagen IN galeria.imagen%TYPE,
+    p_titulo IN galeria.titulo%TYPE
+) IS
+BEGIN
+    UPDATE galeria
+    SET id_usuario = p_id_usuario,
+        imagen = p_imagen,
+        titulo = p_titulo
+    WHERE id_imagen = p_id_imagen;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_eliminar_imagen(
+    p_id_imagen IN galeria.id_imagen%TYPE
+) IS
+BEGIN
+    DELETE FROM galeria
+    WHERE id_imagen = p_id_imagen;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_obtener_imagen_por_id(
+    p_id_imagen IN galeria.id_imagen%TYPE,
+    p_imagen OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_imagen FOR
+    SELECT * FROM galeria WHERE id_imagen = p_id_imagen;
+END;
+/
+
+--CRUD proyecto
+CREATE OR REPLACE PROCEDURE sp_agregar_proyecto(
+    p_id_usuario IN proyecto.id_usuario%TYPE,
+    p_id_categoria IN proyecto.id_categoria%TYPE,
+    p_nombre_proyecto IN proyecto.nombre_proyecto%TYPE,
+    p_detalle_proyecto IN proyecto.detalle_proyecto%TYPE,
+    p_estado_proyecto IN proyecto.estado_proyecto%TYPE,
+    p_ruta_imagen IN proyecto.ruta_imagen%TYPE
+) IS
+BEGIN
+    INSERT INTO proyecto (id_usuario, id_categoria, nombre_proyecto, detalle_proyecto, estado_proyecto, ruta_imagen)
+    VALUES (p_id_usuario, p_id_categoria, p_nombre_proyecto, p_detalle_proyecto, p_estado_proyecto, p_ruta_imagen);
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_leer_proyectos(
+    p_proyectos OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_proyectos FOR
+    SELECT * FROM proyecto;
+END sp_leer_proyectos;
+
+CREATE OR REPLACE PROCEDURE sp_actualizar_proyecto(
+    p_id_proyecto IN proyecto.id_proyecto%TYPE,
+    p_id_usuario IN proyecto.id_usuario%TYPE,
+    p_id_categoria IN proyecto.id_categoria%TYPE,
+    p_nombre_proyecto IN proyecto.nombre_proyecto%TYPE,
+    p_detalle_proyecto IN proyecto.detalle_proyecto%TYPE,
+    p_estado_proyecto IN proyecto.estado_proyecto%TYPE,
+    p_ruta_imagen IN proyecto.ruta_imagen%TYPE
+) IS
+BEGIN
+    UPDATE proyecto
+    SET id_usuario = p_id_usuario,
+        id_categoria = p_id_categoria,
+        nombre_proyecto = p_nombre_proyecto,
+        detalle_proyecto = p_detalle_proyecto,
+        estado_proyecto = p_estado_proyecto,
+        ruta_imagen = p_ruta_imagen
+    WHERE id_proyecto = p_id_proyecto;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_eliminar_proyecto(
+    p_id_proyecto IN proyecto.id_proyecto%TYPE
+) IS
+BEGIN
+    DELETE FROM proyecto
+    WHERE id_proyecto = p_id_proyecto;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_obtener_proyecto_por_id(
+    p_id_proyecto IN proyecto.id_proyecto%TYPE,
+    p_proyecto OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_proyecto FOR
+    SELECT * FROM proyecto WHERE id_proyecto = p_id_proyecto;
+END;
+/
+
+--CRUD recursos
+CREATE OR REPLACE PROCEDURE sp_agregar_recurso(
+    p_id_categoria IN recursos.id_categoria%TYPE,
+    p_nombre_recurso IN recursos.nombre_recurso%TYPE,
+    p_descripcion IN recursos.descripcion%TYPE,
+    p_imagen IN recursos.imagen%TYPE
+) IS
+BEGIN
+    INSERT INTO recursos (id_categoria, nombre_recurso, descripcion, imagen)
+    VALUES (p_id_categoria, p_nombre_recurso, p_descripcion, p_imagen);
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_leer_recursos(
+    p_recursos OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_recursos FOR
+    SELECT * FROM recursos;
+END sp_leer_recursos;
+
+CREATE OR REPLACE PROCEDURE sp_actualizar_recurso(
+    p_id_recurso IN recursos.id_recurso%TYPE,
+    p_id_categoria IN recursos.id_categoria%TYPE,
+    p_nombre_recurso IN recursos.nombre_recurso%TYPE,
+    p_descripcion IN recursos.descripcion%TYPE,
+    p_imagen IN recursos.imagen%TYPE
+) IS
+BEGIN
+    UPDATE recursos
+    SET id_categoria = p_id_categoria,
+        nombre_recurso = p_nombre_recurso,
+        descripcion = p_descripcion,
+        imagen = p_imagen
+    WHERE id_recurso = p_id_recurso;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_eliminar_recurso(
+    p_id_recurso IN recursos.id_recurso%TYPE
+) IS
+BEGIN
+    DELETE FROM recursos
+    WHERE id_recurso = p_id_recurso;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_obtener_recurso_por_id(
+    p_id_recurso IN recursos.id_recurso%TYPE,
+    p_recurso OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_recurso FOR
+    SELECT * FROM recursos WHERE id_recurso = p_id_recurso;
+END;
+
+CREATE OR REPLACE PROCEDURE SP_OBTENER_RECURSOS (
+    IDCATEGORIA IN NUMBER,
+    CURSORC OUT SYS_REFCURSOR
+)
+AS
+BEGIN
+    IF IDCATEGORIA IS NULL THEN
+        OPEN CURSORC FOR
+            SELECT * FROM RECURSOS;
+    ELSE
+        OPEN CURSORC FOR
+            SELECT * FROM RECURSOS
+            WHERE ID_CATEGORIA = IDCATEGORIA;
+    END IF;
+END;
+
+
+--CRUD transportes
+CREATE OR REPLACE PROCEDURE sp_agregar_transporte(
+    p_id_usuario IN transportes.id_usuario%TYPE,
+    p_nombre_transporte IN transportes.nombre_transporte%TYPE,
+    p_ruta_transporte IN transportes.ruta_transporte%TYPE,
+    p_horario_transporte IN transportes.horario_transporte%TYPE,
+    p_precio_transporte IN transportes.precio_transporte%TYPE
+) IS
+BEGIN
+    INSERT INTO transportes (id_usuario, nombre_transporte, ruta_transporte, horario_transporte, precio_transporte)
+    VALUES (p_id_usuario, p_nombre_transporte, p_ruta_transporte, p_horario_transporte, p_precio_transporte);
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_leer_transportes(
+    p_transportes OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_transportes FOR
+    SELECT * FROM transportes;
+END sp_leer_transportes;
+
+CREATE OR REPLACE PROCEDURE sp_actualizar_transporte(
+    p_id_transporte IN transportes.id_transporte%TYPE,
+    p_id_usuario IN transportes.id_usuario%TYPE,
+    p_nombre_transporte IN transportes.nombre_transporte%TYPE,
+    p_ruta_transporte IN transportes.ruta_transporte%TYPE,
+    p_horario_transporte IN transportes.horario_transporte%TYPE,
+    p_precio_transporte IN transportes.precio_transporte%TYPE
+) IS
+BEGIN
+    UPDATE transportes
+    SET id_usuario = p_id_usuario,
+        nombre_transporte = p_nombre_transporte,
+        ruta_transporte = p_ruta_transporte,
+        horario_transporte = p_horario_transporte,
+        precio_transporte = p_precio_transporte
+    WHERE id_transporte = p_id_transporte;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_eliminar_transporte(
+    p_id_transporte IN transportes.id_transporte%TYPE
+) IS
+BEGIN
+    DELETE FROM transportes
+    WHERE id_transporte = p_id_transporte;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE sp_obtener_transporte_por_id(
+    p_id_transporte IN transportes.id_transporte%TYPE,
+    p_transporte OUT SYS_REFCURSOR
+) IS
+BEGIN
+    OPEN p_transporte FOR
+    SELECT * FROM transportes WHERE id_transporte = p_id_transporte;
+END;
+
+--Trigger para incrementar (Secuencias)
+-- Tabla rol
+CREATE SEQUENCE seq_rol
+START WITH 1
+INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trg_rol_id
+BEFORE INSERT ON rol
+FOR EACH ROW
+BEGIN
+    IF :NEW.id_rol IS NULL THEN
+        SELECT seq_rol.NEXTVAL INTO :NEW.id_rol FROM dual;
+    END IF;
+END;
+/
+
+-- Tabla categoria
+CREATE SEQUENCE seq_categoria
+START WITH 1
+INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trg_categoria_id
+BEFORE INSERT ON categoria
+FOR EACH ROW
+BEGIN
+    IF :NEW.id_categoria IS NULL THEN
+        SELECT seq_categoria.NEXTVAL INTO :NEW.id_categoria FROM dual;
+    END IF;
+END;
+/
+
+-- Tabla usuario
+CREATE SEQUENCE seq_usuario
+START WITH 1
+INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trg_usuario_id
+BEFORE INSERT ON usuario
+FOR EACH ROW
+BEGIN
+    IF :NEW.id_usuario IS NULL THEN
+        SELECT seq_usuario.NEXTVAL INTO :NEW.id_usuario FROM dual;
+    END IF;
+END;
+/
+
+-- Tabla comentario
+CREATE SEQUENCE seq_comentario
+START WITH 1
+INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trg_comentario_id
+BEFORE INSERT ON comentario
+FOR EACH ROW
+BEGIN
+    IF :NEW.id_comentario IS NULL THEN
+        SELECT seq_comentario.NEXTVAL INTO :NEW.id_comentario FROM dual;
+    END IF;
+END;
+/
+
+-- Tabla eventos
+CREATE SEQUENCE seq_eventos
+START WITH 1
+INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trg_eventos_id
+BEFORE INSERT ON eventos
+FOR EACH ROW
+BEGIN
+    IF :NEW.id_evento IS NULL THEN
+        SELECT seq_eventos.NEXTVAL INTO :NEW.id_evento FROM dual;
+    END IF;
+END;
+/
+-- Tabla expertos
+CREATE SEQUENCE seq_expertos
+START WITH 1
+INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trg_expertos_id
+BEFORE INSERT ON expertos
+FOR EACH ROW
+BEGIN
+    IF :NEW.id_experto IS NULL THEN
+        SELECT seq_expertos.NEXTVAL INTO :NEW.id_experto FROM dual;
+    END IF;
+END;
+/
+
+-- Tabla galeria
+CREATE SEQUENCE seq_galeria
+START WITH 1
+INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trg_galeria_id
+BEFORE INSERT ON galeria
+FOR EACH ROW
+BEGIN
+    IF :NEW.id_imagen IS NULL THEN
+        SELECT seq_galeria.NEXTVAL INTO :NEW.id_imagen FROM dual;
+    END IF;
+END;
+/
+
+-- Tabla proyecto
+CREATE SEQUENCE seq_proyecto
+START WITH 1
+INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trg_proyecto_id
+BEFORE INSERT ON proyecto
+FOR EACH ROW
+BEGIN
+    IF :NEW.id_proyecto IS NULL THEN
+        SELECT seq_proyecto.NEXTVAL INTO :NEW.id_proyecto FROM dual;
+    END IF;
+END;
+/
+
+-- Tabla recursos
+CREATE SEQUENCE seq_recursos
+START WITH 1
+INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trg_recursos_id
+BEFORE INSERT ON recursos
+FOR EACH ROW
+BEGIN
+    IF :NEW.id_recurso IS NULL THEN
+        SELECT seq_recursos.NEXTVAL INTO :NEW.id_recurso FROM dual;
+    END IF;
+END;
+/
+
+-- Tabla transportes
+CREATE SEQUENCE seq_transportes
+START WITH 1
+INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trg_transportes_id
+BEFORE INSERT ON transportes
+FOR EACH ROW
+BEGIN
+    IF :NEW.id_transporte IS NULL THEN
+        SELECT seq_transportes.NEXTVAL INTO :NEW.id_transporte FROM dual;
+    END IF;
+END;
