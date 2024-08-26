@@ -122,7 +122,7 @@ CREATE TABLE expertos (
 INSERT INTO expertos (id_experto, id_categoria, nombre_experto, quienes_somos, historia_expertos, url_instagram, url_x, url_youtube, url_facebook) VALUES 
   (1, 6, 'Green Wolf Costa Rica', 'Green Wolf Costa Rica es un movimiento integral, inclusivo y sostenible, que busca la recuperación socio-ecosistémica de Costa Rica a través de la acción y alianzas intersectoriales.', 'Nacemos a partir de la preocupación de nuestro fundador, Ellian Villalobos, por la creciente contaminación de los ecosistemas costarricenses. Por esto, un 15 de diciembre de 2018 funda Green Wolf Costa Rica.', 'https://www.instagram.com/greenwolfcr/', 'https://x.com/greenwolfcr?lang=en', 'https://www.youtube.com/channel/UC6NRa0FDOb3pEx7xmX5P9fQ', 'https://www.facebook.com/GreenWolfCR');
 INSERT INTO expertos (id_experto, id_categoria, nombre_experto, quienes_somos, historia_expertos, url_instagram, url_x, url_youtube, url_facebook) VALUES 
-  (2, 7, 'Asociación Costa Rica por Siempre', 'Somos la Asociación Costa Rica por Siempre, una organización no gubernamental de carácter privado, creada en el 2010 como el segundo PFP del mundo, un modelo de financiamiento de proyectos para la permanencia (PFP).\r\n\r\nNos dedicamos a gestionar, invertir y movilizar recursos de Gobiernos, organismos internacionales y fundaciones privadas que buscan la conservación de la biodiversidad.', 'Nacimos bajo una alianza público-privada para apoyar al país en cumplir las metas del Convención de Diversidad Biológica (CDB) de las Naciones Unidas.', 'https://www.instagram.com/costaricaporsiempre/', 'https://x.com/CRporSiempre', 'https://www.youtube.com/channel/UCnpLXRSOKto1pOUxM5cbOQw', 'https://www.facebook.com/ACRXS');
+  (2, 7, 'Asociación Costa Rica por Siempre', 'Somos la Asociación Costa Rica por Siempre, una organización no gubernamental de carácter privado, creada en el 2010 como el segundo PFP del mundo, un modelo de financiamiento de proyectos para la permanencia (PFP).' || CHR(10) || CHR(10) ||'Nos dedicamos a gestionar, invertir y movilizar recursos de Gobiernos, organismos internacionales y fundaciones privadas que buscan la conservación de la biodiversidad.', 'Nacimos bajo una alianza público-privada para apoyar al país en cumplir las metas del Convención de Diversidad Biológica (CDB) de las Naciones Unidas.', 'https://www.instagram.com/costaricaporsiempre/', 'https://x.com/CRporSiempre', 'https://www.youtube.com/channel/UCnpLXRSOKto1pOUxM5cbOQw', 'https://www.facebook.com/ACRXS');
   
 CREATE TABLE galeria (
   id_imagen NUMBER(11) NOT NULL,
@@ -891,3 +891,11 @@ BEGIN
     FROM USRVIDA_AZUL.RECURSOS
     WHERE ID_RECURSO = IDRECURSO;
 END SP_LEER_RECURSO;
+
+-- SPs Expertos
+
+CREATE OR REPLACE PROCEDURE USRVIDA_AZUL.SP_OBTENER_EXPERTOS (p_expertos OUT SYS_REFCURSOR) AS
+BEGIN
+    OPEN p_expertos FOR
+    SELECT * FROM USRVIDA_AZUL.EXPERTOS;
+END;
