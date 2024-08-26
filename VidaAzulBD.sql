@@ -179,15 +179,131 @@ CREATE TABLE recursos (
 );
 
 INSERT INTO recursos (id_recurso, id_categoria, nombre_recurso, descripcion, imagen) VALUES 
-  (1, 8, 'Paneles Solares', 'Guía completa sobre la instalación y mantenimiento de paneles solares\n\nIntroducción\nLos paneles solares convierten la luz del sol en electricidad, ofreciendo una fuente de energía limpia y sostenible. Esta guía te ayudará a entender cómo instalar y mantener tu sistema solar.\n\nTipos de Paneles Solares\nMonocristalinos: Alta eficiencia, mayor costo.\nPolicristalinos: Menor costo, eficiencia moderada.\nCapa Fina: Flexible y ligero, pero menos eficiente.\n\nInstalación\nEvaluación: Asegúrate de que el área tenga buena exposición al sol.\nCálculo de Energía: Revisa tus facturas eléctricas para dimensionar el sistema.\nPermisos: Verifica requisitos locales.\nPasos de Instalación\nMontaje de Estructuras: Fija las estructuras al techo o suelo.\nInstalación de Paneles: Coloca los paneles sobre las estructuras.\nCableado: Conecta los paneles al inversor y, si es necesario, a la red eléctrica.\nConfiguración: Ajusta el inversor y el medidor para monitorear la producción.\nMantenimiento\nLimpieza: Limpia los paneles una o dos veces al año.\nInspección Visual: Revisa los paneles y cables para detectar daños.\nMonitoreo: Usa aplicaciones para verificar el rendimiento del sistema.\nRevisión Profesional: Realiza una inspección anual para asegurar el funcionamiento óptimo.\n\nConclusión\nCon una instalación adecuada y un mantenimiento regular, los paneles solares pueden ofrecer energía limpia y ahorrar en tus facturas de electricidad durante más de 25 años.', 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Fixed_Tilt_Solar_panel_at_Canterbury_Municipal_Building_Canterbury_New_Hampshire.jpg');
+  (1, 8, 'Paneles Solares', 'Guía completa sobre la instalación y mantenimiento de paneles solares' || CHR(10) || CHR(10) ||
+  'Introducción' || CHR(10) ||
+  'Los paneles solares convierten la luz del sol en electricidad, ofreciendo una fuente de energía limpia y sostenible. Esta guía te ayudará a entender cómo instalar y mantener tu sistema solar.' || CHR(10) || CHR(10) ||
+  'Tipos de Paneles Solares' || CHR(10) ||
+  'Monocristalinos: Alta eficiencia, mayor costo.' || CHR(10) ||
+  'Policristalinos: Menor costo, eficiencia moderada.' || CHR(10) ||
+  'Capa Fina: Flexible y ligero, pero menos eficiente.' || CHR(10) || CHR(10) ||
+  'Instalación' || CHR(10) ||
+  'Evaluación: Asegúrate de que el área tenga buena exposición al sol.' || CHR(10) ||
+  'Cálculo de Energía: Revisa tus facturas eléctricas para dimensionar el sistema.' || CHR(10) ||
+  'Permisos: Verifica requisitos locales.' || CHR(10) ||
+  'Pasos de Instalación' || CHR(10) ||
+  'Montaje de Estructuras: Fija las estructuras al techo o suelo.' || CHR(10) ||
+  'Instalación de Paneles: Coloca los paneles sobre las estructuras.' || CHR(10) ||
+  'Cableado: Conecta los paneles al inversor y, si es necesario, a la red eléctrica.' || CHR(10) ||
+  'Configuración: Ajusta el inversor y el medidor para monitorear la producción.' || CHR(10) || CHR(10) ||
+  'Mantenimiento' || CHR(10) ||
+  'Limpieza: Limpia los paneles una o dos veces al año.' || CHR(10) ||
+  'Inspección Visual: Revisa los paneles y cables para detectar daños.' || CHR(10) ||
+  'Monitoreo: Usa aplicaciones para verificar el rendimiento del sistema.' || CHR(10) ||
+  'Revisión Profesional: Realiza una inspección anual para asegurar el funcionamiento óptimo.' || CHR(10) || CHR(10) ||
+  'Conclusión' || CHR(10) ||
+  'Con una instalación adecuada y un mantenimiento regular, los paneles solares pueden ofrecer energía limpia y ahorrar en tus facturas de electricidad durante más de 25 años.', 
+  'https://upload.wikimedia.org/wikipedia/commons/2/2c/Fixed_Tilt_Solar_panel_at_Canterbury_Municipal_Building_Canterbury_New_Hampshire.jpg');
 INSERT INTO recursos (id_recurso, id_categoria, nombre_recurso, descripcion, imagen) VALUES 
-  (2, 9, 'Reciclaje en Casa', 'Consejos prácticos para implementar un sistema de reciclaje en el hogar. \n\nIntroducción\nEl reciclaje en casa es una forma efectiva de reducir residuos y contribuir al cuidado del medio ambiente. Esta guía te ayudará a empezar con el reciclaje en tu hogar.\n\n¿Qué se Puede Reciclar?\nPapel y Cartón: Incluye periódicos, revistas, cajas y envases de cartón.\nPlásticos: Botellas, envases y bolsas plásticas. Verifica los símbolos de reciclaje.\nVidrio: Botellas y frascos de vidrio. Enjuaga antes de reciclar.\nMetales: Latas de alimentos y bebidas. Aplasta las latas para ahorrar espacio.\n\nCómo Empezar\nSelecciona Contenedores: Usa contenedores separados para papel, plásticos, vidrio y metales.\nClasifica los Residuos: Asegúrate de separar los materiales reciclables de los no reciclables.\nLimpia los Recipientes: Enjuaga los envases para evitar contaminantes.\n\nConsejos para el Reciclaje\nInfórmate: Revisa las normativas locales sobre qué materiales se pueden reciclar.\nReduce y Reutiliza: Antes de reciclar, considera reducir tu consumo y reutilizar materiales.\nEducación Familiar: Enseña a todos en casa cómo clasificar y manejar los residuos.\n\nManejo de Residuos Especiales\nElectrónicos: Lleva a puntos de recogida especializados.\nPilas y Baterías: Llévalas a centros de reciclaje específicos.\nResiduos Peligrosos: Sigue las instrucciones locales para la disposición de productos químicos y medicamentos.\n\nConclusión\nReciclar en casa es sencillo y ayuda a reducir el impacto ambiental. Con un poco de organización y educación, puedes contribuir significativamente al cuidado del planeta.', 'https://www.bbva.com/wp-content/uploads/2021/04/como-reciclar-casa-sostenibilidad-reciclaje-bbva-1024x629.jpg');
+  (2, 9, 'Reciclaje en Casa', 
+  'Consejos prácticos para implementar un sistema de reciclaje en el hogar' || CHR(10) || CHR(10) ||
+  'Introducción' || CHR(10) ||
+  'El reciclaje en casa es una forma efectiva de reducir residuos y contribuir al cuidado del medio ambiente. Esta guía te ayudará a empezar con el reciclaje en tu hogar.' || CHR(10) || CHR(10) ||
+  '¿Qué se Puede Reciclar?' || CHR(10) ||
+  'Papel y Cartón: Incluye periódicos, revistas, cajas y envases de cartón.' || CHR(10) ||
+  'Plásticos: Botellas, envases y bolsas plásticas. Verifica los símbolos de reciclaje.' || CHR(10) ||
+  'Vidrio: Botellas y frascos de vidrio. Enjuaga antes de reciclar.' || CHR(10) ||
+  'Metales: Latas de alimentos y bebidas. Aplasta las latas para ahorrar espacio.' || CHR(10) || CHR(10) ||
+  'Cómo Empezar' || CHR(10) ||
+  'Selecciona Contenedores: Usa contenedores separados para papel, plásticos, vidrio y metales.' || CHR(10) ||
+  'Clasifica los Residuos: Asegúrate de separar los materiales reciclables de los no reciclables.' || CHR(10) ||
+  'Limpia los Recipientes: Enjuaga los envases para evitar contaminantes.' || CHR(10) || CHR(10) ||
+  'Consejos para el Reciclaje' || CHR(10) ||
+  'Infórmate: Revisa las normativas locales sobre qué materiales se pueden reciclar.' || CHR(10) ||
+  'Reduce y Reutiliza: Antes de reciclar, considera reducir tu consumo y reutilizar materiales.' || CHR(10) ||
+  'Educación Familiar: Enseña a todos en casa cómo clasificar y manejar los residuos.' || CHR(10) || CHR(10) ||
+  'Manejo de Residuos Especiales' || CHR(10) ||
+  'Electrónicos: Lleva a puntos de recogida especializados.' || CHR(10) ||
+  'Pilas y Baterías: Llévalas a centros de reciclaje específicos.' || CHR(10) ||
+  'Residuos Peligrosos: Sigue las instrucciones locales para la disposición de productos químicos y medicamentos.' || CHR(10) || CHR(10) ||
+  'Conclusión' || CHR(10) ||
+  'Reciclar en casa es sencillo y ayuda a reducir el impacto ambiental. Con un poco de organización y educación, puedes contribuir significativamente al cuidado del planeta.', 
+  'https://www.bbva.com/wp-content/uploads/2021/04/como-reciclar-casa-sostenibilidad-reciclaje-bbva-1024x629.jpg');
 INSERT INTO recursos (id_recurso, id_categoria, nombre_recurso, descripcion, imagen) VALUES 
-  (3, 8, 'Árboles Nativos', 'Importancia de la siembra de árboles nativos para la biodiversidad local\n\nIntroducción\nLa siembra de árboles nativos es crucial para mantener y promover la biodiversidad local. Estos árboles, adaptados a las condiciones ambientales, ofrecen numerosos beneficios ecológicos y ambientales.\n\nBeneficios de los Árboles Nativos\nHábitat Natural: Proporcionan refugio y alimento a especies locales de fauna y flora.\nAdaptación Local: Están mejor adaptados a las condiciones del suelo y clima, reduciendo la necesidad de riego y fertilizantes.\nControl de Erosión: Sus raíces ayudan a estabilizar el suelo y prevenir la erosión.\nRegulación del Clima: Contribuyen a la regulación de la temperatura y la calidad del aire al absorber dióxido de carbono.\n\nCómo Contribuyen a la Biodiversidad\nSostenimiento de Ecosistemas: Los árboles nativos mantienen la estructura y función de los ecosistemas locales.\nPolinización y Dispersión de Semillas: Atraen polinizadores y animales que ayudan a dispersar semillas, promoviendo la regeneración del bosque.\nInteracciones Ecológicas: Fomentan relaciones simbióticas entre plantas, animales y microorganismos.\n\nCómo Plantar Árboles Nativos\nSelecciona Especies Adecuadas: Elige árboles que sean nativos de tu región y adecuados para el tipo de suelo y clima.\nPreparación del Terreno: Asegúrate de que el área esté libre de malas hierbas y tenga un buen drenaje.\nPlantación: Planta en la temporada adecuada y sigue las mejores prácticas de plantación para asegurar el crecimiento saludable.\n\nConsejos Adicionales\nEducación y Conciencia: Informa a la comunidad sobre la importancia de los árboles nativos y promueve su siembra.\nMantenimiento: Proporciona cuidados básicos como riego y protección contra plagas durante los primeros años.\nParticipación Comunitaria: Organiza eventos de plantación comunitaria para involucrar a más personas en la conservación.\n\nConclusión\nLa siembra de árboles nativos es fundamental para preservar la biodiversidad local y mejorar la salud ambiental. Contribuye a un ecosistema equilibrado y sostenible, beneficiando a la flora y fauna de tu área.', 'https://cordis.europa.eu/docs/news/images/2019-07/131589.jpg');
+  (3, 8, 'Árboles Nativos', 
+  'Importancia de la siembra de árboles nativos para la biodiversidad local' || CHR(10) || CHR(10) ||
+  'Introducción' || CHR(10) ||
+  'La siembra de árboles nativos es crucial para mantener y promover la biodiversidad local. Estos árboles, adaptados a las condiciones ambientales, ofrecen numerosos beneficios ecológicos y ambientales.' || CHR(10) || CHR(10) ||
+  'Beneficios de los Árboles Nativos' || CHR(10) ||
+  'Hábitat Natural: Proporcionan refugio y alimento a especies locales de fauna y flora.' || CHR(10) ||
+  'Adaptación Local: Están mejor adaptados a las condiciones del suelo y clima, reduciendo la necesidad de riego y fertilizantes.' || CHR(10) ||
+  'Control de Erosión: Sus raíces ayudan a estabilizar el suelo y prevenir la erosión.' || CHR(10) ||
+  'Regulación del Clima: Contribuyen a la regulación de la temperatura y la calidad del aire al absorber dióxido de carbono.' || CHR(10) || CHR(10) ||
+  'Cómo Contribuyen a la Biodiversidad' || CHR(10) ||
+  'Sostenimiento de Ecosistemas: Los árboles nativos mantienen la estructura y función de los ecosistemas locales.' || CHR(10) ||
+  'Polinización y Dispersión de Semillas: Atraen polinizadores y animales que ayudan a dispersar semillas, promoviendo la regeneración del bosque.' || CHR(10) ||
+  'Interacciones Ecológicas: Fomentan relaciones simbióticas entre plantas, animales y microorganismos.' || CHR(10) || CHR(10) ||
+  'Cómo Plantar Árboles Nativos' || CHR(10) ||
+  'Selecciona Especies Adecuadas: Elige árboles que sean nativos de tu región y adecuados para el tipo de suelo y clima.' || CHR(10) ||
+  'Preparación del Terreno: Asegúrate de que el área esté libre de malas hierbas y tenga un buen drenaje.' || CHR(10) ||
+  'Plantación: Planta en la temporada adecuada y sigue las mejores prácticas de plantación para asegurar el crecimiento saludable.' || CHR(10) || CHR(10) ||
+  'Consejos Adicionales' || CHR(10) ||
+  'Educación y Conciencia: Informa a la comunidad sobre la importancia de los árboles nativos y promueve su siembra.' || CHR(10) ||
+  'Mantenimiento: Proporciona cuidados básicos como riego y protección contra plagas durante los primeros años.' || CHR(10) ||
+  'Participación Comunitaria: Organiza eventos de plantación comunitaria para involucrar a más personas en la conservación.' || CHR(10) || CHR(10) ||
+  'Conclusión' || CHR(10) ||
+  'La siembra de árboles nativos es fundamental para preservar la biodiversidad local y mejorar la salud ambiental. Contribuye a un ecosistema equilibrado y sostenible, beneficiando a la flora y fauna de tu área.', 
+  'https://cordis.europa.eu/docs/news/images/2019-07/131589.jpg');
 INSERT INTO recursos (id_recurso, id_categoria, nombre_recurso, descripcion, imagen) VALUES 
-  (4, 9, 'Charlas Educativas', 'Accede a charlas y talleres sobre sostenibilidad ambiental\n\nIntroducción\nParticipar en charlas y talleres sobre sostenibilidad ambiental es una excelente manera de aprender más sobre prácticas ecológicas y cómo contribuir al cuidado del planeta. Esta guía te ayudará a encontrar y acceder a estos eventos educativos.\n\n¿Dónde Encontrar Charlas y Talleres?\nEventos Locales: Revisa la agenda de eventos de tu municipio o comunidad. A menudo, se organizan talleres en centros comunitarios o escuelas.\nOrganizaciones Ambientales: Muchas ONGs y grupos de conservación ofrecen charlas y talleres. Consulta sus sitios web o redes sociales.\nUniversidades y Centros de Investigación: Las instituciones académicas suelen organizar eventos educativos sobre sostenibilidad.\nPlataformas Online: Explora sitios web y aplicaciones dedicados a eventos educativos, como Eventbrite o Meetup, para encontrar talleres virtuales y presenciales.\n\nCómo Participar\nRegístrate con Anticipación: Asegúrate de inscribirte con anticipación para asegurar tu lugar en el evento.\nVerifica el Formato: Algunos talleres son presenciales, mientras que otros se realizan en línea. Asegúrate de conocer el formato y los requisitos.\nPrepárate: Investiga el tema del taller y prepara preguntas o temas de interés para aprovechar al máximo la experiencia.\n\nBeneficios de Participar\nConocimiento Actualizado: Obtén información actualizada sobre las últimas tendencias y prácticas en sostenibilidad ambiental.\nRed de Contactos: Conecta con profesionales y otros interesados en el tema, lo que puede abrir oportunidades para colaborar en proyectos.\nHabilidades Prácticas: Aprende técnicas y estrategias prácticas que puedes aplicar en tu vida diaria o en tu comunidad.\n\nConsejos Adicionales\nParticipa Activamente: Haz preguntas y participa en discusiones para obtener el mayor beneficio del taller.\nAplica lo Aprendido: Implementa las estrategias y conocimientos adquiridos en tu vida cotidiana o en proyectos comunitarios.\nComparte la Información: Difunde lo aprendido con amigos, familiares y colegas para promover prácticas sostenibles en tu entorno.\n\nConclusión\nAcceder a charlas y talleres sobre sostenibilidad ambiental te proporciona herramientas valiosas para contribuir al cuidado del medio ambiente. Aprovecha estas oportunidades para educarte y hacer una diferencia positiva en tu comunidad.', 'https://accionsocial.ucr.ac.cr/sites/default/files/noticia/imagenes-portada/2019-05/img_0472.jpg');
+  (4, 9, 'Charlas Educativas', 
+  'Accede a charlas y talleres sobre sostenibilidad ambiental' || CHR(10) || CHR(10) ||
+  'Introducción' || CHR(10) ||
+  'Participar en charlas y talleres sobre sostenibilidad ambiental es una excelente manera de aprender más sobre prácticas ecológicas y cómo contribuir al cuidado del planeta. Esta guía te ayudará a encontrar y acceder a estos eventos educativos.' || CHR(10) || CHR(10) ||
+  '¿Dónde Encontrar Charlas y Talleres?' || CHR(10) ||
+  'Eventos Locales: Revisa la agenda de eventos de tu municipio o comunidad. A menudo, se organizan talleres en centros comunitarios o escuelas.' || CHR(10) ||
+  'Organizaciones Ambientales: Muchas ONGs y grupos de conservación ofrecen charlas y talleres. Consulta sus sitios web o redes sociales.' || CHR(10) ||
+  'Universidades y Centros de Investigación: Las instituciones académicas suelen organizar eventos educativos sobre sostenibilidad.' || CHR(10) ||
+  'Plataformas Online: Explora sitios web y aplicaciones dedicados a eventos educativos, como Eventbrite o Meetup, para encontrar talleres virtuales y presenciales.' || CHR(10) || CHR(10) ||
+  'Cómo Participar' || CHR(10) ||
+  'Regístrate con Anticipación: Asegúrate de inscribirte con anticipación para asegurar tu lugar en el evento.' || CHR(10) ||
+  'Verifica el Formato: Algunos talleres son presenciales, mientras que otros se realizan en línea. Asegúrate de conocer el formato y los requisitos.' || CHR(10) ||
+  'Prepárate: Investiga el tema del taller y prepara preguntas o temas de interés para aprovechar al máximo la experiencia.' || CHR(10) || CHR(10) ||
+  'Beneficios de Participar' || CHR(10) ||
+  'Conocimiento Actualizado: Obtén información actualizada sobre las últimas tendencias y prácticas en sostenibilidad ambiental.' || CHR(10) ||
+  'Red de Contactos: Conecta con profesionales y otros interesados en el tema, lo que puede abrir oportunidades para colaborar en proyectos.' || CHR(10) ||
+  'Habilidades Prácticas: Aprende técnicas y estrategias prácticas que puedes aplicar en tu vida diaria o en tu comunidad.' || CHR(10) || CHR(10) ||
+  'Consejos Adicionales' || CHR(10) ||
+  'Participa Activamente: Haz preguntas y participa en discusiones para obtener el mayor beneficio del taller.' || CHR(10) ||
+  'Aplica lo Aprendido: Implementa las estrategias y conocimientos adquiridos en tu vida cotidiana o en proyectos comunitarios.' || CHR(10) ||
+  'Comparte la Información: Difunde lo aprendido con amigos, familiares y colegas para promover prácticas sostenibles en tu entorno.' || CHR(10) || CHR(10) ||
+  'Conclusión' || CHR(10) ||
+  'Acceder a charlas y talleres sobre sostenibilidad ambiental te proporciona herramientas valiosas para contribuir al cuidado del medio ambiente. Aprovecha estas oportunidades para educarte y hacer una diferencia positiva en tu comunidad.', 
+  'https://accionsocial.ucr.ac.cr/sites/default/files/noticia/imagenes-portada/2019-05/img_0472.jpg');
 INSERT INTO recursos (id_recurso, id_categoria, nombre_recurso, descripcion, imagen) VALUES 
-  (5, 8, 'Voluntariados Activos', 'Únete a los proyectos de voluntariado en tu comunidad\n\nIntroducción\nParticipar en proyectos de voluntariado es una forma efectiva de contribuir al bienestar de tu comunidad y hacer una diferencia positiva. Esta guía te ayudará a encontrar y unirte a oportunidades de voluntariado en tu área.\n\n¿Dónde Encontrar Proyectos de Voluntariado?\nOrganizaciones Locales: Consulta con ONGs, centros comunitarios y asociaciones locales que suelen tener programas de voluntariado.\nRedes Sociales y Sitios Web: Plataformas como Facebook, LinkedIn y sitios web de voluntariado (como Idealist o VolunteerMatch) ofrecen listados de proyectos y oportunidades.\nEventos Comunitarios: Asiste a eventos locales para conocer a organizadores de proyectos y obtener información sobre oportunidades de voluntariado.\nInstituciones Educativas y Empresas: Muchas universidades y empresas tienen programas de voluntariado y pueden ofrecer oportunidades o recursos para involucrarte.\n\nCómo Unirte a un Proyecto\nInvestiga las Oportunidades: Examina las diferentes opciones disponibles y elige proyectos que se alineen con tus intereses y habilidades.\nContacta a los Organizadores: Ponte en contacto con las organizaciones para obtener más detalles sobre los proyectos y el proceso de inscripción.\nCompleta el Registro: Sigue el proceso de inscripción que te indiquen, que puede incluir formularios, entrevistas o capacitación previa.\nParticipa en la Capacitación: Si el proyecto requiere capacitación, asegúrate de asistir para estar bien preparado.\n\nBeneficios de Voluntariado\nImpacto Positivo: Contribuye al bienestar de tu comunidad y ayuda a resolver problemas locales.\nDesarrollo Personal: Adquiere nuevas habilidades, experiencias y perspectivas mientras trabajas en proyectos significativos.\nRed de Contactos: Conoce a personas con intereses similares y construye relaciones valiosas en tu comunidad.\n\nConsejos Adicionales\nCompromiso y Puntualidad: Sé puntual y cumple con los compromisos para maximizar tu impacto y mantener una buena relación con los organizadores.\nComunicación: Mantén una comunicación abierta con los coordinadores del proyecto para resolver dudas y adaptar tu participación si es necesario.\nComparte tu Experiencia: Anima a otros a unirse a proyectos de voluntariado y comparte tus experiencias para inspirar a más personas.\n\nConclusión\nUnirte a proyectos de voluntariado en tu comunidad no solo beneficia a quienes reciben tu ayuda, sino que también enriquece tu vida personal y profesional. Aprovecha estas oportunidades para hacer una diferencia y fortalecer tu conexión con tu entorno local.', 'https://educowebmedia.blob.core.windows.net/educowebmedia/educospain/media/images/blog/manos-voluntariado.jpg'); 
+  (5, 8, 'Voluntariados Activos', 
+  'Únete a los proyectos de voluntariado en tu comunidad' || CHR(10) || CHR(10) ||
+  'Introducción' || CHR(10) ||
+  'Participar en proyectos de voluntariado es una forma efectiva de contribuir al bienestar de tu comunidad y hacer una diferencia positiva. Esta guía te ayudará a encontrar y unirte a oportunidades de voluntariado en tu área.' || CHR(10) || CHR(10) ||
+  '¿Dónde Encontrar Proyectos de Voluntariado?' || CHR(10) ||
+  'Organizaciones Locales: Consulta con ONGs, centros comunitarios y asociaciones locales que suelen tener programas de voluntariado.' || CHR(10) ||
+  'Redes Sociales y Sitios Web: Plataformas como Facebook, LinkedIn y sitios web de voluntariado (como Idealist o VolunteerMatch) ofrecen listados de proyectos y oportunidades.' || CHR(10) ||
+  'Eventos Comunitarios: Asiste a eventos locales para conocer a organizadores de proyectos y obtener información sobre oportunidades de voluntariado.' || CHR(10) ||
+  'Instituciones Educativas y Empresas: Muchas universidades y empresas tienen programas de voluntariado y pueden ofrecer oportunidades o recursos para involucrarte.' || CHR(10) || CHR(10) ||
+  'Cómo Unirte a un Proyecto' || CHR(10) ||
+  'Investiga las Oportunidades: Examina las diferentes opciones disponibles y elige proyectos que se alineen con tus intereses y habilidades.' || CHR(10) ||
+  'Contacta a los Organizadores: Ponte en contacto con las organizaciones para obtener más detalles sobre los proyectos y el proceso de inscripción.' || CHR(10) ||
+  'Completa el Registro: Sigue el proceso de inscripción que te indiquen, que puede incluir formularios, entrevistas o capacitación previa.' || CHR(10) ||
+  'Participa en la Capacitación: Si el proyecto requiere capacitación, asegúrate de asistir para estar bien preparado.' || CHR(10) || CHR(10) ||
+  'Beneficios de Voluntariado' || CHR(10) ||
+  'Impacto Positivo: Contribuye al bienestar de tu comunidad y ayuda a resolver problemas locales.' || CHR(10) ||
+  'Desarrollo Personal: Adquiere nuevas habilidades, experiencias y perspectivas mientras trabajas en proyectos significativos.' || CHR(10) ||
+  'Red de Contactos: Conoce a personas con intereses similares y construye relaciones valiosas en tu comunidad.' || CHR(10) || CHR(10) ||
+  'Consejos Adicionales' || CHR(10) ||
+  'Compromiso y Puntualidad: Sé puntual y cumple con los compromisos para maximizar tu impacto y mantener una buena relación con los organizadores.' || CHR(10) ||
+  'Comunicación: Mantén una comunicación abierta con los coordinadores del proyecto para resolver dudas y adaptar tu participación si es necesario.' || CHR(10) ||
+  'Comparte tu Experiencia: Anima a otros a unirse a proyectos de voluntariado y comparte tus experiencias para inspirar a más personas.' || CHR(10) || CHR(10) ||
+  'Conclusión' || CHR(10) ||
+  'Unirte a proyectos de voluntariado en tu comunidad no solo beneficia a quienes reciben tu ayuda, sino que también enriquece tu vida personal y profesional. Aprovecha estas oportunidades para hacer una diferencia y fortalecer tu conexión con tu entorno local.', 
+  'https://educowebmedia.blob.core.windows.net/educowebmedia/educospain/media/images/blog/manos-voluntariado.jpg'); 
 
 CREATE TABLE transportes (
   id_transporte NUMBER(11) NOT NULL,
@@ -542,17 +658,214 @@ BEGIN
     END IF;
 END;
 
+--SPs para usuario
 
+CREATE OR REPLACE PROCEDURE SP_INGRESAR_USUARIO (
+    IDROL IN NUMBER,
+    NOMBREUSUARIO IN VARCHAR2,
+    APELLIDOUSUARIO IN VARCHAR2,
+    CORREO IN VARCHAR2,
+    CONTRASENIA IN VARCHAR2
+) AS
+BEGIN
+    INSERT INTO USUARIO (id_rol, nombre_usuario, apellido_usuario, correo, contrasenia)
+    VALUES (IDROL, NOMBREUSUARIO, APELLIDOUSUARIO, CORREO, CONTRASENIA);
+    COMMIT;
+END SP_INGRESAR_USUARIO;
 
+CREATE SEQUENCE USUARIOSECUENCIA
+START WITH 6
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
 
+CREATE OR REPLACE TRIGGER AUTOINCREMENTUSUARIOS
+BEFORE INSERT ON USUARIO
+FOR EACH ROW
+BEGIN
+    IF :NEW.ID_USUARIO IS NULL THEN
+        SELECT USUARIOSECUENCIA.NEXTVAL INTO :NEW.ID_USUARIO FROM DUAL;
+    END IF;
+END;
 
+CREATE OR REPLACE PROCEDURE SP_LEER_USUARIO (
+    IDUSUARIO IN USRVIDA_AZUL.USUARIO.ID_USUARIO%TYPE,
+    IDROL OUT USRVIDA_AZUL.USUARIO.ID_ROL%TYPE,
+    NOMBREUSUARIO OUT USRVIDA_AZUL.USUARIO.NOMBRE_USUARIO%TYPE,
+    APELLIDOUSUARIO OUT USRVIDA_AZUL.USUARIO.APELLIDO_USUARIO%TYPE,
+    CORREOUSUARIO OUT USRVIDA_AZUL.USUARIO.CORREO%TYPE,
+    CONTRASENIAUSUARIO OUT USRVIDA_AZUL.USUARIO.CONTRASENIA%TYPE
+) IS
+BEGIN
+    SELECT ID_ROL, NOMBRE_USUARIO, APELLIDO_USUARIO, CORREO, CONTRASENIA
+    INTO IDROL, NOMBREUSUARIO, APELLIDOUSUARIO, CORREOUSUARIO, CONTRASENIAUSUARIO
+    FROM USRVIDA_AZUL.USUARIO
+    WHERE ID_USUARIO = IDUSUARIO;
+END SP_LEER_USUARIO;
 
+CREATE OR REPLACE PROCEDURE SP_ACTUALIZAR_USUARIO (
+    IDUSUARIO IN NUMBER,
+    NOMBREUSUARIO     IN VARCHAR2,
+    APELLIDOUSUARIO   IN VARCHAR2,
+    CORREOUSUARIO IN VARCHAR2,
+    CONTRASENIAUSUARIO IN VARCHAR2,
+    IDROL             IN NUMBER
+)
+AS
+BEGIN
+    UPDATE USUARIO
+    SET NOMBRE_USUARIO = NOMBREUSUARIO,
+        APELLIDO_USUARIO = APELLIDOUSUARIO,
+        CORREO = CORREOUSUARIO,
+        CONTRASENIA = CONTRASENIAUSUARIO,
+        ID_ROL = IDROL
+    WHERE ID_USUARIO = IDUSUARIO;
+    COMMIT;
+END;
 
+CREATE OR REPLACE PROCEDURE SP_ELIMINAR_USUARIO (
+    IDUSUARIO IN NUMBER
+) AS
+BEGIN
+    DELETE FROM USUARIO
+    WHERE ID_USUARIO = IDUSUARIO;
+    COMMIT;
+END SP_ELIMINAR_USUARIO;
 
+--SPs para roles
 
+CREATE OR REPLACE PROCEDURE SP_INGRESAR_ROL (
+    IDROL IN NUMBER,
+    NOMBRERROL IN VARCHAR2
+) AS
+BEGIN
+    INSERT INTO ROL (nombre_rol)
+    VALUES (NOMBRERROL);
+    COMMIT;
+END SP_INGRESAR_ROL;
 
+CREATE SEQUENCE ROLESSECUENCIA
+START WITH 6
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
 
+CREATE OR REPLACE TRIGGER AUTOINCREMENTROLES
+BEFORE INSERT ON ROL
+FOR EACH ROW
+BEGIN
+    IF :NEW.ID_ROL IS NULL THEN
+        SELECT ROLESSECUENCIA.NEXTVAL INTO :NEW.ID_ROL FROM DUAL;
+    END IF;
+END;
 
+CREATE OR REPLACE PROCEDURE SP_LEER_ROL (
+    IDROL IN USRVIDA_AZUL.ROL.ID_ROL%TYPE,
+    NOMBREROL OUT USRVIDA_AZUL.ROL.NOMBRE_ROL%TYPE
+) IS
+BEGIN
+    SELECT NOMBRE_ROL
+    INTO NOMBREROL
+    FROM USRVIDA_AZUL.ROL
+    WHERE ID_ROL = IDROL;
+END SP_LEER_ROL;
 
+CREATE OR REPLACE PROCEDURE SP_ACTUALIZAR_ROL (
+    IDROL IN NUMBER,
+    NOMBREROL IN VARCHAR2
+)
+AS
+BEGIN
+    UPDATE ROL
+    SET NOMBRE_ROL = NOMBREROL
+    WHERE ID_ROL = IDROL;
+    COMMIT;
+END;
 
+CREATE OR REPLACE PROCEDURE SP_ELIMINAR_ROL (
+    IDROL IN NUMBER
+) AS
+BEGIN
+    DELETE FROM ROL
+    WHERE ID_ROL = IDROL;
+    COMMIT;
+END SP_ELIMINAR_ROL;
 
+--SPs para Proyecto
+
+CREATE OR REPLACE PROCEDURE SP_INGRESAR_PROYECTO (
+    IDPROYECTO IN NUMBER,
+    IDUSUARIO IN VARCHAR2,
+    IDCATEGORIA IN VARCHAR2,
+    NOMBREPROYECTO IN VARCHAR2,
+    DETALLEPROYECTO IN VARCHAR2,
+    ESTADOPROYECTO IN VARCHAR2,
+    RUTAIMAGEN IN VARCHAR2
+) AS
+BEGIN
+    INSERT INTO PROYECTO (ID_PROYECTO, ID_USUARIO, ID_CATEGORIA, NOMBRE_PROYECTO, DETALLE_PROYECTO, ESTADO_PROYECTO, RUTA_IMAGEN)
+    VALUES (IDPROYECTO, IDUSUARIO, IDCATEGORIA, NOMBREPROYECTO, DETALLEPROYECTO, ESTADOPROYECTO, RUTAIMAGEN);
+    COMMIT;
+END SP_INGRESAR_PROYECTO;
+
+CREATE SEQUENCE PROYECTOSSECUENCIA
+START WITH 6
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+CREATE OR REPLACE TRIGGER AUTOINCREMENTPROYECTOS
+BEFORE INSERT ON PROYECTO
+FOR EACH ROW
+BEGIN
+    IF :NEW.ID_PROYECTO IS NULL THEN
+        SELECT PROYECTOSSECUENCIA.NEXTVAL INTO :NEW.ID_PROYECTO FROM DUAL;
+    END IF;
+END;
+
+CREATE OR REPLACE PROCEDURE SP_LEER_PROYECTO (
+    IDPROYECTO IN USRVIDA_AZUL.PROYECTO.ID_PROYECTO%TYPE,
+    IDUSUARIO OUT USRVIDA_AZUL.PROYECTO.ID_USUARIO%TYPE,
+    IDCATEGORIA OUT USRVIDA_AZUL.PROYECTO.ID_CATEGORIA%TYPE,
+    NOMBREPROYECTO OUT USRVIDA_AZUL.PROYECTO.NOMBRE_PROYECTO%TYPE,
+    DETALLEPROYECTO OUT USRVIDA_AZUL.PROYECTO.DETALLE_PROYECTO%TYPE,
+    ESTADOPROYECTO OUT USRVIDA_AZUL.PROYECTO.ESTADO_PROYECTO%TYPE,
+    RUTAIMAGEN OUT USRVIDA_AZUL.PROYECTO.RUTA_IMAGEN%TYPE
+) IS
+BEGIN
+    SELECT ID_USUARIO, ID_CATEGORIA, NOMBRE_PROYECTO, DETALLE_PROYECTO, ESTADO_PROYECTO, RUTA_IMAGEN
+    INTO IDUSUARIO, IDCATEGORIA, NOMBREPROYECTO, DETALLEPROYECTO, ESTADOPROYECTO, RUTAIMAGEN
+    FROM USRVIDA_AZUL.PROYECTO
+    WHERE ID_PROYECTO = IDPROYECTO;
+END SP_LEER_PROYECTO;
+
+CREATE OR REPLACE PROCEDURE SP_ACTUALIZAR_PROYECTO (
+    IDPROYECTO IN USRVIDA_AZUL.PROYECTO.ID_PROYECTO%TYPE,
+    IDUSUARIO OUT USRVIDA_AZUL.PROYECTO.ID_USUARIO%TYPE,
+    IDCATEGORIA OUT USRVIDA_AZUL.PROYECTO.ID_CATEGORIA%TYPE,
+    NOMBREPROYECTO OUT USRVIDA_AZUL.PROYECTO.NOMBRE_PROYECTO%TYPE,
+    DETALLEPROYECTO OUT USRVIDA_AZUL.PROYECTO.DETALLE_PROYECTO%TYPE,
+    ESTADOPROYECTO OUT USRVIDA_AZUL.PROYECTO.ESTADO_PROYECTO%TYPE,
+    RUTAIMAGEN OUT USRVIDA_AZUL.PROYECTO.RUTA_IMAGEN%TYPE
+)
+AS
+BEGIN
+    UPDATE PROYECTO
+    SET ID_USUARIO = IDUSUARIO,
+        ID_CATEGORIA = IDCATEGORIA,
+        NOMBRE_PROYECTO = NOMBREPROYECTO,
+        DETALLE_PROYECTO = DETALLEPROYECTO,
+        ESTADO_PROYECTO = ESTADOPROYECTO,
+        RUTA_IMAGEN = RUTAIMAGEN
+    WHERE ID_PROYECTO = IDPROYECTO;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE SP_ELIMINAR_PROYECTO (
+    IDPROYECTO IN NUMBER
+) AS
+BEGIN
+    DELETE FROM PROYECTO
+    WHERE ID_PROYECTO = IDPROYECTO;
+    COMMIT;
+END SP_ELIMINAR_PROYECTO;
