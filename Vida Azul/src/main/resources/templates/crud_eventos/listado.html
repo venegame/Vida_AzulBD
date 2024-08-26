@@ -46,8 +46,7 @@
                             <td>
                                 <a th:href="@{/crud_eventos/edita/{id}(id=${evento.idEvento})}" class="btn btn-sm me-2"
                                    style="background-color: #94C132; color: white;">Editar</a>
-                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                        data-bs-target="#eliminaModal" th:data-bs-id="${evento.idEvento}">Eliminar</button>
+                               
                             </td>
                         </tr>
                         <tr th:if="${#lists.isEmpty(eventos)}">
