@@ -1675,3 +1675,27 @@ BEGIN
         SELECT seq_transportes.NEXTVAL INTO :NEW.id_transporte FROM dual;
     END IF;
 END;
+
+-- SP Galeria
+
+CREATE OR REPLACE PROCEDURE SP_LEER_TODO_GALERIA (
+    p_cursor OUT SYS_REFCURSOR
+) AS
+BEGIN
+    OPEN p_cursor FOR
+    SELECT g.id_imagen, g.imagen, g.titulo, u.id_usuario, u.nombre_usuario
+    FROM galeria g
+    INNER JOIN usuario u ON g.id_usuario = u.id_usuario;
+END;
+
+CREATE OR REPLACE PROCEDURE SP_LEER_GALERIA_POR_ID (
+    p_id_imagen IN NUMBER,
+    p_cursor OUT SYS_REFCURSOR
+) AS
+BEGIN
+    OPEN p_cursor FOR
+    SELECT g.id_imagen, g.imagen, g.titulo, u.id_usuario, u.nombre_usuario
+    FROM galeria g
+    INNER JOIN usuario u ON g.id_usuario = u.id_usuario
+    WHERE g.id_imagen = p_id_imagen;
+END;
