@@ -21,8 +21,8 @@ public class EventoService {
 
     public List<EventoModelo> obtenerEventos() {
         String sql = "SELECT e.id_evento, e.nombre_evento, e.fecha_evento, e.descripcion, e.imagen, u.id_usuario, u.nombre_usuario " +
-                     "FROM eventos e " +
-                     "INNER JOIN usuario u ON e.id_categoria = u.id_usuario"; // Suponiendo relación entre eventos y usuario, ajusta si es incorrecto.
+                     "FROM USRVIDA_AZUL.eventos e " +
+                     "INNER JOIN USRVIDA_AZUL.usuario u ON e.id_categoria = u.id_usuario"; // Suponiendo relación entre eventos y usuario, ajusta si es incorrecto.
         return jdbcTemplate.query(sql, (rs, rowNum) -> new EventoModelo(
             rs.getLong("id_evento"),
             rs.getString("nombre_evento"),
@@ -38,8 +38,8 @@ public class EventoService {
     
     public List<EventoModelo> obtenerEventos(Long id) {
         String sql = "SELECT e.id_evento, e.nombre_evento, e.fecha_evento, e.descripcion, e.imagen, u.id_usuario, u.nombre_usuario " +
-                     "FROM eventos e " +
-                     "INNER JOIN usuario u ON e.id_categoria = u.id_usuario " + // Suponiendo relación entre eventos y usuario, ajusta si es incorrecto.
+                     "FROM USRVIDA_AZUL.eventos e " +
+                     "INNER JOIN USRVIDA_AZUL.usuario u ON e.id_categoria = u.id_usuario " + // Suponiendo relación entre eventos y usuario, ajusta si es incorrecto.
                      "WHERE e.id_evento = ?";
         return jdbcTemplate.query(sql, new Object[]{id}, (rs, rowNum) -> new EventoModelo(
             rs.getLong("id_evento"),
