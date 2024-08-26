@@ -86,6 +86,26 @@ public class UsuarioService {
         }
         return mensaje;
     }
+    
+    public String RegistrarUsuario(Usuario usuario) {
+        String mensaje = "Usuario creado exitosamente"; // Mensaje por defecto en caso de éxito
+        String sql = "{CALL USRVIDA_AZUL.SP_INGRESAR_USUARIO(?, ?, ?, ?, ?)}";
+        usuario.setId_rol(2L);
+        try (Connection con = jdbcTemplate.getDataSource().getConnection();
+             CallableStatement cstmt = con.prepareCall(sql)) {
+            // Configurar los parámetros del procedimiento almacenado
+            cstmt.setLong(1, usuario.getId_rol()); // IDROL
+            cstmt.setString(2, usuario.getNombre_usuario()); // NOMBREUSUARIO
+            cstmt.setString(3, usuario.getApellido_usuario()); // APELLIDOUSUARIO
+            cstmt.setString(4, usuario.getCorreo()); // CORREO
+            cstmt.setString(5, usuario.getContrasenia()); // CONTRASENIA
+            cstmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            mensaje = "Error al agregar usuario: " + e.getMessage();
+        }
+        return mensaje;
+    }
 
     public String actualizarUsuario(Usuario usuario) {
         String mensaje = "Usuario actualizado exitosamente";
