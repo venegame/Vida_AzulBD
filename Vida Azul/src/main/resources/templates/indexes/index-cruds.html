@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <link rel="stylesheet" href="/css/styles.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <title>Index Cruds</title>
-</head>
-<body>
-    <div th:replace="/navbar-cruds :: navbar-cruds"></div>
+    <head>
+        <link rel="stylesheet" href="/css/styles.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        <title>Index Cruds</title>
+    </head>
+    <body>
+        <div th:replace="layout/navbar_cruds :: navbarCrud"></div>
     </body>
     <section id="inicio">
         <div class="jumbotron-fluid text-center img_inicio" style="background-image: url('https://static.vecteezy.com/system/resources/previews/010/970/477/non_2x/nature-of-green-leaf-environment-ecology-greenery-wallpaper-free-photo.jpg');
@@ -19,7 +19,7 @@
              background-size: 100% 100%;
              padding: 58px 0;
              font-weight: bold;
-            ">
+             ">
             <div class="container">
                 <h1 class="display-4" style="color: #112A26; font-size: 6rem; font-weight: bold;"><strong>Vida
                         Azul</strong></h1>
@@ -28,6 +28,14 @@
             </div>
         </div>
     </section>
+
+    <div class="container text-center my-4">
+        <h2 class="mb-4" style="color: #217C61;">¡Bienvenidos a Vida Azul!</h2>
+        <p class="lead" style="color: #112A26;">Estamos comprometidos con el medio ambiente y te invitamos a unirte a nosotros en este viaje de aprendizaje y acción. Descubre cómo puedes marcar la diferencia.</p>
+    </div>
+
+
+
     <div class="p-4"></div>
     <footer class="footer col text-center text-white mt-auto p-1" style="background-color:#217C61;position: fixed; bottom: 0;width: 100%;">
         <div class="container ">
@@ -36,5 +44,5 @@
             </div>
         </div>
     </footer>
-    </body>
+</body>
 </html>
