@@ -16,7 +16,7 @@
         <br>
         <nav class="navbar navbar-expand-lg">
             <div class="collapse navbar-collapse" id="navbarNav">
-                <form method="GET" th:action="@{/recursos}" class="d-flex ms-auto">
+                <form method="GET" action="/recurso/recursos" class="d-flex ms-auto">
                     <select class="form-select" name="filtrocategoria" onchange="this.form.submit()">
                         <option value="">Todos</option>
                         <option value="8" th:selected="${filtrocategoria == 8}">Artículos</option>
@@ -28,6 +28,7 @@
                 </form>
             </div>
         </nav>
+
     </div>
     <div th:if="${recursos.isEmpty()}">
         <p>No se encontraron recursos, por favor intente nuevamente.</p>
