@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vida Azul - Agregar Usuarios</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <div th:replace="/navbar-cruds :: navbar-cruds"></div>
+</head>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+    <div class="container">
+        <h3 class="my-3">Nuevo Usuario</h3>
+        <form th:action="@{/usuarios/guardar}" th:object="${usuario}" class="row g-3" method="post" autocomplete="off">
+            <div class="col-md-4">
+                <label for="nombre_usuario" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre_usuario" th:field="*{nombre_usuario}" required>
+            </div>
+
+            <div class="col-md-4">
+                <label for="apellido_usuario" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="apellido_usuario" th:field="*{apellido_usuario}" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="correo" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="correo" th:field="*{correo}" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="contrasenia" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="contrasenia" th:field="*{contrasenia}" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="id_rol" class="form-label">Rol</label>
+                <select class="form-select" id="id_rol" th:field="*{id_rol}"  required>
+                    <option value="1">Administrador</option>
+                    <option value="2">Usuario</option>
+                    <option value="3">Moderador</option>
+                    <option value="4">Editor</option>
+                    <option value="5">Voluntario</option>
+                </select>
+            </div>
+            
+            <div class="col-12">
+                <a th:href="@{/usuarios/listado}" class="btn btn-secondary">Regresar</a>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form>
+        <div th:if="${mensaje}" class="alert alert-success mt-3" th:text="${mensaje}"></div>
+        <div th:if="${error}" class="alert alert-danger mt-3" th:text="${error}"></div>
+    </div>
+</main>
+<footer class="footer col text-center text-white mt-auto p-1" style="background-color:#217C61;position: fixed; bottom: 0;width: 100%;">
+    <div class="container">
+        <div class="col">
+            <p style="color: white;">&COPY;Vida Azul Derechos Reservados 2024</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
