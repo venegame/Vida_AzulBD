@@ -2,71 +2,54 @@ package models;
 
 import java.util.Date;
 
-/**
- *
- * @author cadam
- */
 public class EventoModelo {
-    private Long id_evento;
-    private Long id_categoria;
-    private String nombre_evento;
-    private Date fecha_evento;
+    private Long idEvento;
+    private Long idCategoria;
+    private String nombreEvento;
+    private Date fechaEvento;
     private String descripcion;
     private String imagen;
 
-    private UsuarioModelo usuario;  // Este campo se mantiene si aún necesitas el objeto UsuarioModelo
-
-    public EventoModelo() {
-    }
-
-    public EventoModelo(Long id_evento, Long id_categoria, String nombre_evento, Date fecha_evento, String descripcion, String imagen) {
-        this.id_evento = id_evento;
-        this.id_categoria = id_categoria;
-        this.nombre_evento = nombre_evento;
-        this.fecha_evento = fecha_evento;
+    public EventoModelo(Long idEvento, Long idCategoria, String nombreEvento, Date fechaEvento,
+                        String descripcion, String imagen) {
+        this.idEvento = idEvento;
+        this.idCategoria = idCategoria;
+        this.nombreEvento = nombreEvento;
+        this.fechaEvento = fechaEvento;
         this.descripcion = descripcion;
         this.imagen = imagen;
     }
 
-    public EventoModelo(Long id_evento, String nombre_evento, Date fecha_evento, String descripcion, String imagen, UsuarioModelo usuario) {
-        this.id_evento = id_evento;
-        this.nombre_evento = nombre_evento;
-        this.fecha_evento = fecha_evento;
-        this.descripcion = descripcion;
-        this.imagen = imagen;
-        this.usuario = usuario;
+    public Long getIdEvento() {
+        return idEvento;
     }
 
-    public Long getId_evento() {
-        return id_evento;
+    public void setIdEvento(Long idEvento) {
+        this.idEvento = idEvento;
     }
 
-    public void setId_evento(Long id_evento) {
-        this.id_evento = id_evento;
+    public Long getIdCategoria() {
+        return idCategoria;
     }
 
-    public Long getId_categoria() {
-        return id_categoria;
+    public void setIdCategoria(Long idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
-    public void setId_categoria(Long id_categoria) {
-        this.id_categoria = id_categoria;
+    public String getNombreEvento() {
+        return nombreEvento;
     }
 
-    public String getNombre_evento() {
-        return nombre_evento;
+    public void setNombreEvento(String nombreEvento) {
+        this.nombreEvento = nombreEvento;
     }
 
-    public void setNombre_evento(String nombre_evento) {
-        this.nombre_evento = nombre_evento;
+    public Date getFechaEvento() {
+        return fechaEvento;
     }
 
-    public Date getFecha_evento() {
-        return fecha_evento;
-    }
-
-    public void setFecha_evento(Date fecha_evento) {
-        this.fecha_evento = fecha_evento;
+    public void setFechaEvento(Date fechaEvento) {
+        this.fechaEvento = fechaEvento;
     }
 
     public String getDescripcion() {
@@ -83,26 +66,5 @@ public class EventoModelo {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
-    }
-
-    public UsuarioModelo getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(UsuarioModelo usuario) {
-        this.usuario = usuario;
-    }
-
-    @Override
-    public String toString() {
-        return "EventoModelo{" +
-               "id_evento=" + id_evento +
-               ", id_categoria=" + id_categoria +
-               ", nombre_evento='" + nombre_evento + '\'' +
-               ", fecha_evento=" + fecha_evento +
-               ", descripcion='" + descripcion + '\'' +
-               ", imagen='" + imagen + '\'' +
-               ", usuario=" + usuario +
-               '}';
     }
 }

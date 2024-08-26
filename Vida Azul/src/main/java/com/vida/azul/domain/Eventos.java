@@ -29,9 +29,11 @@ public class Eventos {
     @Column(name = "IMAGEN")
     private String imagen;
 
+    // Constructor vacío
     public Eventos() {
     }
 
+    // Constructor completo
     public Eventos(Long id_evento, Long id_categoria, String nombre_evento, Date fecha_evento, String descripcion, String imagen) {
         this.id_evento = id_evento;
         this.id_categoria = id_categoria;
@@ -41,14 +43,7 @@ public class Eventos {
         this.imagen = imagen;
     }
 
-    public Eventos(Long id_categoria, String nombre_evento, Date fecha_evento, String descripcion, String imagen) {
-        this.id_categoria = id_categoria;
-        this.nombre_evento = nombre_evento;
-        this.fecha_evento = fecha_evento;
-        this.descripcion = descripcion;
-        this.imagen = imagen;
-    }
-
+    // Getters y Setters
     public Long getId_evento() {
         return id_evento;
     }

@@ -17,16 +17,12 @@
                 <div th:each="evento : ${eventos}" class="col-sm-6 col-md-4 col-lg-3 mb-4">
                     <div class="gallery">
                         <a th:href="@{${evento.imagen}}" target="_blank">
-                            <img th:src="@{${evento.imagen}}" th:alt="${evento.nombre_evento}" class="img-fluid">
+                            <img th:src="@{${evento.imagen}}" th:alt="${evento.nombreEvento}" class="img-fluid">
                         </a>
                         <div class="desc">
-                            <span th:text="${evento.nombre_evento}">Nombre del Evento</span>
-                            <br>
-                            Fecha: <span th:text="${#dates.format(evento.fecha_evento, 'dd/MM/yyyy')}">Fecha del Evento</span>
-                            <br>
-                            Descripción: <span th:text="${evento.descripcion}">Descripción del Evento</span>
-                            <br>
-                            (Usuario: <span th:text="${evento.usuario.nombre_usuario}">Nombre de usuario</span>)
+                            <span th:text="${evento.nombreEvento}">Nombre del Evento</span>
+                            <p th:text="${evento.descripcion}">Descripción del Evento</p>
+                            <span th:text="${#dates.format(evento.fechaEvento, 'dd/MM/yyyy')}">Fecha del Evento</span>
                         </div>
                     </div>
                 </div>

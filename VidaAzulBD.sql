@@ -917,3 +917,14 @@ BEGIN
     OPEN p_transportes FOR
     SELECT * FROM USRVIDA_AZUL.TRANSPORTES;
 END;
+
+-- SP Eventos
+CREATE OR REPLACE PROCEDURE SP_LEER_TODOS_EVENTOS (
+    p_cursor OUT SYS_REFCURSOR
+) AS
+BEGIN
+    OPEN p_cursor FOR
+    SELECT id_evento, id_categoria, nombre_evento, fecha_evento, descripcion, imagen
+    FROM eventos;
+END;
+/

@@ -12,14 +12,14 @@ import models.EventoModelo;
 @Controller
 @RequestMapping("/Eventos")
 public class EventoController {
-    
+
     @Autowired
     private EventoService eventoService;
 
     @GetMapping("/eventos")
     public String mostrarEventos(Model model) {
-        List<EventoModelo> eventos = eventoService.obtenerEventos();
+        List<EventoModelo> eventos = eventoService.obtenerTodosEventos();
         model.addAttribute("eventos", eventos);
-        return "Eventos/eventos";  
+        return "Eventos/eventos";
     }
 }
