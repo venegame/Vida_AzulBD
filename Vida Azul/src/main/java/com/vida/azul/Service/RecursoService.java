@@ -1,6 +1,6 @@
 package com.vida.azul.Service;
 
-import com.vida.azul.domain.Recurso;
+import com.vida.azul.Domain.Recurso;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;

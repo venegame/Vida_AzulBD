@@ -6,7 +6,7 @@ package com.vida.azul.Controller;
 
 import com.vida.azul.Service.IniciarSesionService;
 import com.vida.azul.Service.UsuarioService;
-import com.vida.azul.domain.Usuario;
+import com.vida.azul.Domain.Usuario;
 import java.sql.SQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

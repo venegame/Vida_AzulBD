@@ -5,7 +5,7 @@
 package com.vida.azul.Controller;
 
 import com.vida.azul.Service.TransporteService;
-import com.vida.azul.domain.Transporte;
+import com.vida.azul.Domain.Transporte;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,6 +1,6 @@
 package com.vida.azul.Service;
 
-import com.vida.azul.domain.Usuario;
+import com.vida.azul.Domain.Usuario;
 import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

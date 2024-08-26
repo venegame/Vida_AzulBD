@@ -1,0 +1,42 @@
+<div th:fragment="navbarCrud">
+    <nav class="navbar navbar-expand-lg navbar-dark" >
+        <div class="container">
+            <a class="navbar-brand py-3" th:href="@{/index.html}"><strong>Vida Azul</strong></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crud_recursos/listado}"><strong>Recursos</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crud_categoria/listado}"><strong>Categorias</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crud_transporte/listado}"><strong>Transportes</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crud_galeria/listado}"><strong>Galería</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crud_eventos/listado}"><strong>Eventos</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crud_proyecto/listado}"><strong>Proyectos</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crud_rol/listado}"><strong>Roles</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crud_experto/listado}"><strong>Expertos</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crud_usuario/listado}"><strong>Usuarios</strong></a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <input type="text" class="form-control search-bar" placeholder="Buscar">
+                    <a th:href="@{/iniciarsesion.html}" class="nav-icon"><i class="bi bi-person-circle"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

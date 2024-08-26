@@ -5,7 +5,7 @@
 package com.vida.azul.Controller;
 
 import com.vida.azul.Service.ExpertoService;
-import com.vida.azul.domain.Experto;
+import com.vida.azul.Domain.Experto;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

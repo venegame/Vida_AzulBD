@@ -1,7 +1,7 @@
 package com.vida.azul.Controller;
 
 import com.vida.azul.Service.RecursoService;
-import com.vida.azul.domain.Recurso;
+import com.vida.azul.Domain.Recurso;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

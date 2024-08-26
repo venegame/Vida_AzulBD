@@ -1,6 +1,6 @@
 package com.vida.azul.Controller;
 
-import com.vida.azul.domain.Galeria;
+import com.vida.azul.Domain.Galeria;
 import com.vida.azul.Service.GaleriaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

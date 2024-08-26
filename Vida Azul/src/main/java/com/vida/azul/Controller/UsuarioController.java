@@ -1,6 +1,6 @@
 package com.vida.azul.Controller;
 
-import com.vida.azul.domain.Usuario;
+import com.vida.azul.Domain.Usuario;
 import com.vida.azul.Service.UsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

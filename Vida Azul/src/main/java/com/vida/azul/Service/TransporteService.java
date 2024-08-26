@@ -4,7 +4,7 @@
  */
 package com.vida.azul.Service;
 
-import com.vida.azul.domain.Transporte;
+import com.vida.azul.Domain.Transporte;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.beans.factory.annotation.Autowired;
