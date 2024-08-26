@@ -29,7 +29,7 @@ public class EventoService {
     public List<EventoModelo> obtenerTodosEventos() {
         return jdbcTemplate.execute(
             (CallableStatementCreator) con -> {
-                CallableStatement cs = con.prepareCall("{call SP_LEER_TODOS_EVENTOS(?)}");
+                CallableStatement cs = con.prepareCall("{call USRVIDA_AZUL.SP_LEER_TODOS_EVENTOS(?)}");
                 cs.registerOutParameter(1, Types.REF_CURSOR);
                 return cs;
             },

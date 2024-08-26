@@ -9,8 +9,10 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import oracle.jdbc.OracleTypes;
 import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -26,7 +28,37 @@ public class UsuarioService {
     public UsuarioService(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
+    
+    public List<Usuario> obtenerUsuarios() {
+        // Configuración de SimpleJdbcCall para invocar al procedimiento almacenado
+        SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withSchemaName("USRVIDA_AZUL")
+                .withProcedureName("SP_LEER_USUARIOS")
+                .declareParameters(new SqlOutParameter("p_cursor", OracleTypes.CURSOR));
 
+        // Ejecución del procedimiento almacenado
+        Map<String, Object> result = jdbcCall.execute();
+
+        // Obtener el cursor de salida
+        List<Usuario> usuarios = new ArrayList<>();
+        List<Map<String, Object>> rows = (List<Map<String, Object>>) result.get("p_cursor");
+
+        // Mapear los resultados a la entidad Usuario
+        for (Map<String, Object> row : rows) {
+            Usuario usuario = new Usuario();
+            usuario.setId_usuario(((Number) row.get("ID_USUARIO")).longValue());
+            usuario.setId_rol(((Number) row.get("ID_ROL")).longValue());
+            usuario.setNombre_usuario((String) row.get("NOMBRE_USUARIO"));
+            usuario.setApellido_usuario((String) row.get("APELLIDO_USUARIO"));
+            usuario.setCorreo((String) row.get("CORREO"));
+            usuario.setContrasenia((String) row.get("CONTRASENIA"));
+            usuarios.add(usuario);
+        }
+
+        return usuarios;
+    }
+
+    /*
     public List<Usuario> obtenerUsuarios() {
         // Implementa la lógica para obtener usuarios, posiblemente usando una consulta SQL
         String sql = "SELECT * FROM USRVIDA_AZUL.usuario";
@@ -39,7 +71,7 @@ public class UsuarioService {
             rs.getString("contrasenia")
         ));
     }
-    
+    */
     public Usuario obtenerUsuarioPorId(Long idUsuario) {
         SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate)
             .withSchemaName("USRVIDA_AZUL")
