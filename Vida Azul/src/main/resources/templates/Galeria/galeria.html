@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <div th:replace="/navbar-cruds :: navbar-cruds"></div>
+    <title>Galeria</title>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <div class="container container-fluid p-0" style="padding-bottom: 60px;">
+        <div class="container mt-5">
+            <h2>Proyectos Realizados</h2>
+            <h5>Proyectos concluidos por nuestra comunidad y usuarios participando y formando parte de cada una de nuestras experiencias.</h5>
+            <br>
+            <div class="row">
+                <div th:each="imagen : ${imagenes}" class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="gallery">
+                        <a th:href="@{${imagen.imagen}}" target="_blank">
+                            <img th:src="@{${imagen.imagen}}" th:alt="${imagen.titulo}" class="img-fluid">
+                        </a>
+                        <div class="desc">
+                            <span th:text="${imagen.titulo}">Título del proyecto</span> (Usuario: 
+                            <span th:text="${imagen.usuario.nombre_usuario}">Nombre de usuario</span>)
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div style="padding:6px;">
+                    <p>¡Gracias por tu valiosa colaboración en los servicios de limpieza del medio ambiente! Tu compromiso y dedicación marcan una gran diferencia en la preservación de nuestro planeta. Juntos, estamos creando un futuro más limpio y saludable para todos. ¡Apreciamos profundamente tu esfuerzo y espíritu solidario!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer col text-center text-white mt-auto p-1" style="background-color:#217C61;position: fixed; bottom: 0;width: 100%;">
+        <div class="container">
+            <div class="col">
+                <p style="color: white;">&COPY;Vida Azul Derechos Reservados 2024</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
