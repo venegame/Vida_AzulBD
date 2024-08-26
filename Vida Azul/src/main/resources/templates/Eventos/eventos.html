@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <div th:replace="/navbar-cruds :: navbar-cruds"></div>
+    <title>Información del Evento</title>
+    <style>
+        footer {
+            background-color: #217C61;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <section id="contenido" class="container mt-5">
+            <div class="row align-items-center">
+                <div th:each="evento : ${eventos}" class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="gallery">
+                        <a th:href="@{${evento.imagen}}" target="_blank">
+                            <img th:src="@{${evento.imagen}}" th:alt="${evento.nombre_evento}" class="img-fluid">
+                        </a>
+                        <div class="desc">
+                            <span th:text="${evento.nombre_evento}">Nombre del Evento</span>
+                            <br>
+                            Fecha: <span th:text="${#dates.format(evento.fecha_evento, 'dd/MM/yyyy')}">Fecha del Evento</span>
+                            <br>
+                            Descripción: <span th:text="${evento.descripcion}">Descripción del Evento</span>
+                            <br>
+                            (Usuario: <span th:text="${evento.usuario.nombre_usuario}">Nombre de usuario</span>)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal fade" id="inscripcionModal" tabindex="-1" aria-labelledby="inscripcionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="inscripcionModalLabel">Formulario de inscripción</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="contactus" action="" method="post">
+                        <div class="desc">Si desea ser parte de este evento debes enviar un correo a
+                            somosvidaazul@vidaazul.com con la siguiente información:</div>
+                        <br>
+                        <div class="desc">Nombre completo.</div>
+                        <div class="desc">Cédula.</div>
+                        <div class="desc">Correo electrónico.</div>
+                        <div class="desc">Número telefónico.</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&COPY;Vida Azul Derechos Reservados 2024</p>
+        </div>
+    </footer>
+</body>
+</html>
